@@ -7,7 +7,8 @@ MAINTAINER XUTONGLE <xutongle@gmail.com>
 WORKDIR /tmp
 
 RUN wget -c --no-check-certificate https://xutl.oss-cn-hangzhou.aliyuncs.com/docker-asset/vlmcs/vlmcsdmulti-x64-musl-static && \
-    cp vlmcsdmulti-x64-musl-static /usr/local/bin/vlmcsdmulti-x64-musl-static
+    cp vlmcsdmulti-x64-musl-static /usr/local/bin/vlmcsdmulti-x64-musl-static && \
+    chmod 755 /usr/local/bin/vlmcsdmulti-x64-musl-static
 
 EXPOSE 1688
 
