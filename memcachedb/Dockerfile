@@ -31,7 +31,7 @@ RUN wget -c http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.
     make && make install && \
     rm -rf /tmp/*
 
-# install memcacheq
+# install memcachedb
 RUN wget -c --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcachedb/memcachedb-${MEMCACHEDB_VERSION}-beta.tar.gz && \
     tar xzf memcachedb-${MEMCACHEDB_VERSION}-beta.tar.gz && \
     cd memcachedb-${MEMCACHEDB_VERSION}-beta && \
