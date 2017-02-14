@@ -40,8 +40,6 @@ RUN wget -c --no-check-certificate https://storage.googleapis.com/google-code-ar
     make && make install && \
     rm -rf /tmp/*
 
-RUN mkdir -p /var/lib/memcachedb
-
 EXPOSE 22201
 
 VOLUME ["/var/lib/memcachedb"]
