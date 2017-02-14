@@ -19,7 +19,7 @@ WORKDIR /tmp
 RUN wget -c --no-check-certificate https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}-stable/libevent-${LIBEVENT_VERSION}-stable.tar.gz && \
     tar zxf libevent-${LIBEVENT_VERSION}-stable.tar.gz && \
     cd libevent-${LIBEVENT_VERSION}-stable && \
-    ./configure --prefix=${INSTALL_DIR} && \
+    ./configure --prefix=/usr && \
     make && make install && \
     rm -rf /tmp/*
 
@@ -27,7 +27,7 @@ RUN wget -c --no-check-certificate https://github.com/libevent/libevent/releases
 RUN wget -c http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.gz && \
     tar xzf db-${BERKELEYDB_VERSION}.tar.gz && \
     cd db-${BERKELEYDB_VERSION}/build_unix && \
-    ../dist/configure --prefix=${INSTALL_DIR} && \
+    ../dist/configure --prefix=/usr && \
     make && make install && \
     rm -rf /tmp/*
 
