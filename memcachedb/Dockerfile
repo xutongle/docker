@@ -7,7 +7,7 @@ MAINTAINER XUTONGLE <xutongle@gmail.com>
 ENV INSTALL_DIR=/usr/local \
     LIBEVENT_VERSION=2.0.22 \
     BERKELEYDB_VERSION=6.2.23 \
-    MEMCACHEDB_VERSION=1.2.1
+    MEMCACHEDB_VERSION=1.2.1-beta
 
 RUN apt-get update && \
   apt-get install -y --no-install-recommends gcc wget make && \
@@ -32,9 +32,9 @@ RUN wget -c http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.
     rm -rf /tmp/*
 
 # install memcachedb
-RUN wget -c --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcachedb/memcachedb-${MEMCACHEDB_VERSION}-beta.tar.gz && \
-    tar xzf memcachedb-${MEMCACHEDB_VERSION}-beta.tar.gz && \
-    cd memcachedb-${MEMCACHEDB_VERSION}-beta && \
+RUN wget -c --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcachedb/memcachedb-${MEMCACHEDB_VERSION}.tar.gz && \
+    tar xzf memcachedb-${MEMCACHEDB_VERSION}.tar.gz && \
+    cd memcachedb-${MEMCACHEDB_VERSION} && \
     ./configure --prefix=${INSTALL_DIR}  --enable-threads && \
     make && make install && \
     rm -rf /tmp/*
