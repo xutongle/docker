@@ -35,7 +35,7 @@ RUN wget -c http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.
 RUN wget -c --no-check-certificate https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/memcacheq/memcacheq-${MEMCACHEQ_VERSION}.tar.gz && \
     tar xzf memcacheq-${MEMCACHEQ_VERSION}.tar.gz && \
     cd memcacheq-${MEMCACHEQ_VERSION} && \
-    ./configure --prefix=${INSTALL_DIR}  --enable-threads && \
+    ./configure  --with-bdb=/usr --prefix=${INSTALL_DIR}  --enable-threads && \
     make && make install && \
     rm -rf /tmp/*
 
