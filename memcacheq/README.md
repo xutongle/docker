@@ -1,21 +1,30 @@
 MemcacheQ - Simple Queue Service over Memcache
 ---
 
+![](https://img.shields.io/badge/MemcacheQ-0.2.0-brightgreen.svg) ![](https://img.shields.io/badge/Debian-jessie-brightgreen.svg) ![](https://img.shields.io/docker/stars/xutongle/memcacheq.svg) ![](https://img.shields.io/docker/pulls/xutongle/memcacheq.svg)
+
 detail : [http://memcachedb.org/memcacheq/](http://memcachedb.org/memcacheq/)
 
-**Version**
+#### Volume
 
-*0.2.0*     [Dockerfile](https://github.com/xutongle/docker/memcacheq/blob/master/Dockerfile)
+- /var/lib/memcacheq
 
+#### Custom usage:
 
-*latest*    [Dockerfile](https://github.com/xutongle/docker/memcacheq/blob/master/Dockerfile)
+    docker run \
+        -d \
+        --name memcacheq \
+        -p 22201:22201 \
+        -v /local_path/memcacheq:/var/lib/memcacheq:rw \
+        xutongle/memcacheq
 
-**Usage**
+#### Compose example:
 
-    docker run -d -p 22201:22201 --name memcacheq xutongle/memcacheq:0.2.0
-  
-**Store Data**
+    memcacheq:
+      image: xutongle/memcacheq
+      ports:
+        - "22201:22201"
+      volumes:
+        - /local_path/memcacheq:/var/lib/memcacheq:rw
+      restart: always
 
-    docker run -d -p 22201:22201 --name memcacheq -v /my-data-dir:/var/lib/memcacheq xutongle/memcacheq:0.2.0
-  
-  

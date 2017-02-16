@@ -1,21 +1,32 @@
 MemcacheDB - A distributed key-value storage system designed for persistent.
 ---
 
+![](https://img.shields.io/badge/MemcacheDB-1.2.1-brightgreen.svg) ![](https://img.shields.io/badge/Debian-jessie-brightgreen.svg) ![](https://img.shields.io/docker/stars/xutongle/memcachedb.svg) ![](https://img.shields.io/docker/pulls/xutongle/memcachedb.svg)
+
 detail : [http://memcachedb.org/](http://memcachedb.org/)
 
-**Version**
+#### Volume
 
-*1.2.1*     [Dockerfile](https://github.com/xutongle/docker/memcachedb/blob/master/Dockerfile)
+- /var/lib/memcachedb
 
+#### Custom usage:
 
-*latest*    [Dockerfile](https://github.com/xutongle/docker/memcachedb/blob/master/Dockerfile)
+    docker run \
+        -d \
+        --name memcachedb \
+        -p 21211:21211 \
+        -v /local_path/memcachedb:/var/lib/memcachedb:rw \
+        xutongle/memcachedb
 
-**Usage**
+#### Compose example:
 
-    docker run -d -p 21211:21211 --name memcachedb xutongle/memcachedb:1.2.1
-  
-**Store Data**
+    memcachedb:
+      image: xutongle/memcachedb
+      ports:
+        - "21211:21211"
+      volumes:
+        - /local_path/memcachedb:/var/lib/memcachedb:rw
+      restart: always
 
-    docker run -d -p 21211:21211 --name memcachedb -v /my-data-dir:/var/lib/memcachedb xutongle/memcachedb:1.2.1
   
   
